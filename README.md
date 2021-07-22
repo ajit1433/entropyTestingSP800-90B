@@ -1,18 +1,26 @@
-# entropyTestingSP800-90B
+## HEADING (to be added)
 
->> create directory structure for the test
+###### Create directory structure for the test
+```
 chmod +x makeDirStructure.sh
 ./makeDirStructure.sh
+```
 
->> copy following files to ExperimentData/RawDataStore
-  atecc50a_full.bin
-  urandom_full.bin
-  sha2_256_full.bin
-  sha3_256_full.bin
+###### Copy following files to ExperimentData/RawDataStore
+- atecc50a_full.bin
+- urandom_full.bin
+- sha2_256_full.bin
+- sha3_256_full.bin
 
->> run ./compileCode.sh to compile all required binaries
+###### Compile code to generate required binaries
+```
+chmod +x compileCode.sh
+./compileCode.sh
+```
 
->> do
+###### Create input files from Raw files
+```
   chmod +x Bin/createDataFiles
   cd Bin/
-  ./createDataFiles 
+  ./createDataFiles
+```
