@@ -1,7 +1,3 @@
-//
-// Created by irisys3 on 12-02-2021.
-//
-
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>

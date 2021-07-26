@@ -6,9 +6,9 @@
 #define __SHA2_256__ 1
 #define __SHA3_256__ 1
 
-#define MAX_FILES 1000
+#define END_FILE_NUM 1000
 
-#define LOG_TO_FILE 1
+#define __WRITE_TO_FILE__ 1
 
 void merge(const char *parentdir) {
 
@@ -17,18 +17,31 @@ void merge(const char *parentdir) {
     char line[1000];
 
     memset(outfile, 0, 100);
-    snprintf(outfile, 100, "../Results/%s_combined_results.csv", parentdir);
+    snprintf(outfile, 100, "../ExperimentData/Results/%s_combined_results.csv", parentdir);
+    puts(outfile);
 
     FILE *outfp = fopen(outfile, "w+");
+    if (outfp == NULL) {
+        perror("error opening output file");
+        return;
+    }
 
-    for (int i = 1; i <= MAX_FILES; i++) {
+    // add headers to the file
+#if __WRITE_TO_FILE__
+    char *headers;
+    asprintf(&headers, "File Number, Most Common Value, Collision Test, Markov Test, Compression Test, T-Tuple Test, Longest Repeated Substring Test, Multi Most Common in Window (MultiMCW) Prediction Test, Lag Prediction Test, Multi Markov Model with Counting (MultiMMC) Prediction Test, LZ78Y Prediction Test, Final Entropy\n");
+    fwrite((void *)headers, 1, strlen(headers), outfp);
+#endif
+
+    // start adding data from individual files
+    for (int i = 1; i <= END_FILE_NUM; i++) {
         memset(infile, 0, 100);
-        snprintf(infile, 100, "../SP80090B_Output/%s/%05d.csv", parentdir, i);
-
+        snprintf(infile, 100, "../ExperimentData/SP80090B_Output/%s/%05d.csv", parentdir, i);
+        puts(infile);
         FILE *fp = fopen(infile, "r");
         if (fp == NULL) {
             perror("error opening file");
-            return;
+            goto _ERROR;
         }
 
         /* Get the number of bytes */
@@ -43,13 +56,15 @@ void merge(const char *parentdir) {
         snprintf(line, 1000, "%05d, ", i);
         fread((void *)(line+7), 1, numbytes, fp);
 
-#if LOG_TO_FILE
+#if __WRITE_TO_FILE__
         fwrite((void *)line, 1, strlen(line), outfp);
 #endif
 
         fclose(fp);
     }
 
+    fclose(outfp);
+_ERROR:
     fclose(outfp);
 }
 int main() {
