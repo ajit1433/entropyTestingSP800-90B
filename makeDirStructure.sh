@@ -10,6 +10,9 @@ ATECC_DIR="./atecc508a"
 URANDOM_DIR="./urandom"
 SHA2_256_DIR="./sha2_256"
 SHA3_256_DIR="./sha3_256"
+S01_50_50_DIR="./01_50_50"
+S01_25_75_DIR="./01_25_75"
+S01_125_875_DIR="./01_125_875"
 
 # make root dir
 mkdir $ROOT_DIR
@@ -27,6 +30,9 @@ mkdir $ATECC_DIR
 mkdir $URANDOM_DIR
 mkdir $SHA2_256_DIR
 mkdir $SHA3_256_DIR
+mkdir $S01_50_50_DIR
+mkdir $S01_25_75_DIR
+mkdir $S01_125_875_DIR
 cd ..
 
 # make entropy store
@@ -35,6 +41,9 @@ mkdir $ATECC_DIR
 mkdir $URANDOM_DIR
 mkdir $SHA2_256_DIR
 mkdir $SHA3_256_DIR
+mkdir $S01_50_50_DIR
+mkdir $S01_25_75_DIR
+mkdir $S01_125_875_DIR
 cd ..
 
 

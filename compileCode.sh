@@ -1,5 +1,5 @@
 echo ">>>>> Data File Creator"
-g++ Code/CreateDataFiles/main.cpp -o Bin/createDataFiles
+g++ Code/CreateDataFiles/main.cpp -o Bin/CreateDataFiles
 echo ">>>>> Complete"
 
 echo ">>>>> Result Files (SP800-90B) Merge"
