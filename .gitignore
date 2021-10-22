@@ -1,2 +1,17 @@
 Bin/**
 ExperimentData/**
+!ExperimentData/DataStore
+ExperimentData/DataStore/**
+!ExperimentData/DataStore/.gitkeep
+
+!ExperimentData/RawDataStore
+ExperimentData/RawDataStore/**
+!ExperimentData/RawDataStore/.gitkeep
+
+!ExperimentData/Results
+ExperimentData/Results/**
+!ExperimentData/Results/.gitkeep
+
+!ExperimentData/SP80090B_Output
+ExperimentData/SP80090B_Output/**
+!ExperimentData/SP80090B_Output/.gitkeep
