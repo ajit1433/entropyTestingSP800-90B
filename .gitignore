@@ -8,9 +8,8 @@ ExperimentData/DataStore/**
 ExperimentData/RawDataStore/**
 !ExperimentData/RawDataStore/.gitkeep
 
-!ExperimentData/Results
-ExperimentData/Results/**
-!ExperimentData/Results/.gitkeep
+!ExperimentData/Results/
+!ExperimentData/Results/**
 
 !ExperimentData/SP80090B_Output
 ExperimentData/SP80090B_Output/**
